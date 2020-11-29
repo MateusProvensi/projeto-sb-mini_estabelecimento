@@ -2,10 +2,10 @@ package com.proven.minimercado.entidades;
 
 import java.io.Serializable;
 
-public class Cliente implements Serializable{
+public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private Integer idCliente;
 	private String nome;
 	private String sobrenome;

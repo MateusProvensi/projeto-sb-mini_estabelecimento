@@ -2,52 +2,43 @@ package com.proven.minimercado.entidades;
 
 import java.io.Serializable;
 
+import com.proven.minimercado.entidades.PK.FornecedorMarcaPK;
+
 public class FornecedorMarca implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Integer idFornecedorMarca;
-	private Fornecedor fornecedor;
-	private Marca marca;
+	private FornecedorMarcaPK id;
 
 	public FornecedorMarca() {
 	}
-	
-	public FornecedorMarca(Integer idFornecedorMarca, Fornecedor fornecedor, Marca marca) {
-		this.idFornecedorMarca = idFornecedorMarca;
-		this.fornecedor = fornecedor;
-		this.marca = marca;
-	}
 
-	public Integer getIdFornecedorMarca() {
-		return idFornecedorMarca;
-	}
-
-	public void setIdFornecedorMarca(Integer idFornecedorMarca) {
-		this.idFornecedorMarca = idFornecedorMarca;
+	public FornecedorMarca(Fornecedor fornecedor, Marca marca) {
+		id.setFornecedor(fornecedor);
+		id.setMarca(marca);
 	}
 
 	public Fornecedor getFornecedor() {
-		return fornecedor;
+		return id.getFornecedor();
 	}
 
 	public void setFornecedor(Fornecedor fornecedor) {
-		this.fornecedor = fornecedor;
+		id.setFornecedor(fornecedor);
 	}
 
 	public Marca getMarca() {
-		return marca;
+		return id.getMarca();
 	}
 
 	public void setMarca(Marca marca) {
-		this.marca = marca;
+		id.setMarca(marca);
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idFornecedorMarca == null) ? 0 : idFornecedorMarca.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -60,10 +51,10 @@ public class FornecedorMarca implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		FornecedorMarca other = (FornecedorMarca) obj;
-		if (idFornecedorMarca == null) {
-			if (other.idFornecedorMarca != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!idFornecedorMarca.equals(other.idFornecedorMarca))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
