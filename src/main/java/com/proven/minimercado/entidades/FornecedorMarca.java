@@ -2,8 +2,13 @@ package com.proven.minimercado.entidades;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import com.proven.minimercado.entidades.PK.FornecedorMarcaPK;
 
+@Entity
+@Table(name = "tb_fornecedor_marca")
 public class FornecedorMarca implements Serializable {
 
 	private static final long serialVersionUID = 1L;

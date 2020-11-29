@@ -2,11 +2,23 @@ package com.proven.minimercado.entidades;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity // Diz para o JPA que ele é uma entidade
+@Table(name = "tb_cliente") // Diz para o JPA como será o nome da tabela
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@Id // Diz para o JPA que o atributo abaixo é o ID da tabela
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Diz para o JPA que o atributo abaixo será gerado
+														// automaticamente
 	private Long idCliente;
+
 	private String nome;
 	private String sobrenome;
 	private String cpf;
