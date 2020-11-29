@@ -2,19 +2,19 @@ package com.proven.minimercado.entidades;
 
 import java.io.Serializable;
 
-public class Empresa implements Serializable{
-	
+public class Empresa implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
-	private Integer idEmpresa;
+
+	private Long idEmpresa;
 	private String nome;
 	private String cnpj;
 	private String telefone;
-	
+
 	public Empresa() {
 	}
-	
-	public Empresa(Integer idEmpresa, String nome, String cnpj, String telefone) {
+
+	public Empresa(Long idEmpresa, String nome, String cnpj, String telefone) {
 		super();
 		this.idEmpresa = idEmpresa;
 		this.nome = nome;
@@ -22,11 +22,11 @@ public class Empresa implements Serializable{
 		this.telefone = telefone;
 	}
 
-	public Integer getIdEmpresa() {
+	public Long getIdEmpresa() {
 		return idEmpresa;
 	}
 
-	public void setIdEmpresa(Integer idEmpresa) {
+	public void setIdEmpresa(Long idEmpresa) {
 		this.idEmpresa = idEmpresa;
 	}
 

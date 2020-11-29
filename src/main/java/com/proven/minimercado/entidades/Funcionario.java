@@ -6,7 +6,7 @@ public class Funcionario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Integer idFuncionario;
+	private Long idFuncionario;
 	private String nome;
 	private String sobrenome;
 	private String cpf;
@@ -17,7 +17,7 @@ public class Funcionario implements Serializable {
 	public Funcionario() {
 	}
 
-	public Funcionario(Integer idFuncionario, String nome, String sobrenome, String cpf, String rg, String telefone,
+	public Funcionario(Long idFuncionario, String nome, String sobrenome, String cpf, String rg, String telefone,
 			Integer numeroCaixa) {
 		super();
 		this.idFuncionario = idFuncionario;
@@ -29,11 +29,11 @@ public class Funcionario implements Serializable {
 		this.numeroCaixa = numeroCaixa;
 	}
 
-	public Integer getIdFuncionario() {
+	public Long getIdFuncionario() {
 		return idFuncionario;
 	}
 
-	public void setIdFuncionario(Integer idFuncionario) {
+	public void setIdFuncionario(Long idFuncionario) {
 		this.idFuncionario = idFuncionario;
 	}
 

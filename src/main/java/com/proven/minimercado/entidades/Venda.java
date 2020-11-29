@@ -7,7 +7,7 @@ public class Venda implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Integer idVenda;
+	private Long idVenda;
 	private Double precoTotal;
 	private Instant dataHoraVenda;
 	private Cliente cliente;
@@ -16,7 +16,7 @@ public class Venda implements Serializable {
 	public Venda() {
 	}
 
-	public Venda(Integer idVenda, Double precoTotal, Instant dataHoraVenda, Cliente cliente, Funcionario funcionario) {
+	public Venda(Long idVenda, Double precoTotal, Instant dataHoraVenda, Cliente cliente, Funcionario funcionario) {
 		this.idVenda = idVenda;
 		this.precoTotal = precoTotal;
 		this.dataHoraVenda = dataHoraVenda;
@@ -24,11 +24,11 @@ public class Venda implements Serializable {
 		this.funcionario = funcionario;
 	}
 
-	public Integer getIdVenda() {
+	public Long getIdVenda() {
 		return idVenda;
 	}
 
-	public void setIdVenda(Integer idVenda) {
+	public void setIdVenda(Long idVenda) {
 		this.idVenda = idVenda;
 	}
 

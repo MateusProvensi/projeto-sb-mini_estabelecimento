@@ -6,7 +6,7 @@ public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Integer idCliente;
+	private Long idCliente;
 	private String nome;
 	private String sobrenome;
 	private String cpf;
@@ -16,7 +16,7 @@ public class Cliente implements Serializable {
 	public Cliente() {
 	}
 
-	public Cliente(Integer idCliente, String nome, String sobrenome, String cpf, String rg, String telefone) {
+	public Cliente(Long idCliente, String nome, String sobrenome, String cpf, String rg, String telefone) {
 		super();
 		this.idCliente = idCliente;
 		this.nome = nome;
@@ -26,11 +26,11 @@ public class Cliente implements Serializable {
 		this.telefone = telefone;
 	}
 
-	public Integer getIdCliente() {
+	public Long getIdCliente() {
 		return idCliente;
 	}
 
-	public void setIdCliente(Integer idCliente) {
+	public void setIdCliente(Long idCliente) {
 		this.idCliente = idCliente;
 	}
 

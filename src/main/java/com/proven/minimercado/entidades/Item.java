@@ -3,11 +3,11 @@ package com.proven.minimercado.entidades;
 import java.io.Serializable;
 import java.time.Instant;
 
-public class Item implements Serializable{
-	
+public class Item implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
-	private Integer idItem;
+	private Long idItem;
 	private String descricaoItem;
 	private String codigoBarras;
 	private Double precoVenda;
@@ -19,7 +19,7 @@ public class Item implements Serializable{
 	public Item() {
 	}
 
-	public Item(Integer idItem, String descricaoItem, String codigoBarras, Double precoVenda, Integer quantidade,
+	public Item(Long idItem, String descricaoItem, String codigoBarras, Double precoVenda, Integer quantidade,
 			Instant validade, String corredor, FornecedorMarca fornecedorMarca) {
 		this.idItem = idItem;
 		this.descricaoItem = descricaoItem;
@@ -31,11 +31,11 @@ public class Item implements Serializable{
 		this.fornecedorMarca = fornecedorMarca;
 	}
 
-	public Integer getIdItem() {
+	public Long getIdItem() {
 		return idItem;
 	}
 
-	public void setIdItem(Integer idItem) {
+	public void setIdItem(Long idItem) {
 		this.idItem = idItem;
 	}
 

@@ -2,11 +2,11 @@ package com.proven.minimercado.entidades;
 
 import java.io.Serializable;
 
-public class Marca implements Serializable{
+public class Marca implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-	private Integer idMarca;
+
+	private Long idMarca;
 	private String nome;
 	private String cnpj;
 	private Empresa empresa;
@@ -14,7 +14,7 @@ public class Marca implements Serializable{
 	public Marca() {
 	}
 
-	public Marca(Integer idMarca, String nome, String cnpj, Empresa empresa) {
+	public Marca(Long idMarca, String nome, String cnpj, Empresa empresa) {
 		super();
 		this.idMarca = idMarca;
 		this.nome = nome;
@@ -22,11 +22,11 @@ public class Marca implements Serializable{
 		this.empresa = empresa;
 	}
 
-	public Integer getIdMarca() {
+	public Long getIdMarca() {
 		return idMarca;
 	}
 
-	public void setIdMarca(Integer idMarca) {
+	public void setIdMarca(Long idMarca) {
 		this.idMarca = idMarca;
 	}
 
