@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +27,9 @@ public class Item implements Serializable {
 	private Integer quantidade;
 	private Instant validade;
 	private String corredor;
+
+	@ManyToOne
+	@JoinColumn(name = "fk_id_fornecedor_marca")
 	private FornecedorMarca fornecedorMarca;
 
 	public Item() {

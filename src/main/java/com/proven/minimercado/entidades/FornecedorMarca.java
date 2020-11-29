@@ -1,6 +1,8 @@
 package com.proven.minimercado.entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -14,6 +16,8 @@ public class FornecedorMarca implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private FornecedorMarcaPK id;
+
+	private List<Item> itens = new ArrayList<>();
 
 	public FornecedorMarca() {
 	}
@@ -37,6 +41,10 @@ public class FornecedorMarca implements Serializable {
 
 	public void setMarca(Marca marca) {
 		id.setMarca(marca);
+	}
+
+	public List<Item> getItens() {
+		return itens;
 	}
 
 	@Override

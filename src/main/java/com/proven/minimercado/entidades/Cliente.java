@@ -1,11 +1,14 @@
 package com.proven.minimercado.entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity // Diz para o JPA que ele é uma entidade
@@ -24,6 +27,10 @@ public class Cliente implements Serializable {
 	private String cpf;
 	private String rg;
 	private String telefone;
+
+	@OneToMany(mappedBy = "cliente") // Cria associacao de muitos para um e fala qual o nome do atributo que ele esta
+										// mapeado na outra entidade
+	private List<Venda> vendas = new ArrayList<>();
 
 	public Cliente() {
 	}
@@ -84,6 +91,10 @@ public class Cliente implements Serializable {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public List<Venda> getVendas() {
+		return vendas;
 	}
 
 	@Override

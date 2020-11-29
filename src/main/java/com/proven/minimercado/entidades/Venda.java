@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +23,13 @@ public class Venda implements Serializable {
 
 	private Double precoTotal;
 	private Instant dataHoraVenda;
+
+	@ManyToOne // Cria associacao de muitos para um
+	@JoinColumn(name = "fk_id_cliente") // Referencia ele como um chave estrangeira
 	private Cliente cliente;
+
+	@ManyToOne
+	@JoinColumn(name = "fk_id_funcionario")
 	private Funcionario funcionario;
 
 	public Venda() {

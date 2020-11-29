@@ -1,11 +1,14 @@
 package com.proven.minimercado.entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +27,9 @@ public class Funcionario implements Serializable {
 	private String rg;
 	private String telefone;
 	private Integer numeroCaixa;
+
+	@OneToMany(mappedBy = "funcionario")
+	private List<Venda> vendas = new ArrayList<>();
 
 	public Funcionario() {
 	}
@@ -94,6 +100,10 @@ public class Funcionario implements Serializable {
 
 	public void setNumeroCaixa(Integer numeroCaixa) {
 		this.numeroCaixa = numeroCaixa;
+	}
+
+	public List<Venda> getVendas() {
+		return vendas;
 	}
 
 	@Override

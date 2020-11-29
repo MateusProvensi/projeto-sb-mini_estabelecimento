@@ -1,11 +1,14 @@
 package com.proven.minimercado.entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,10 +20,16 @@ public class Empresa implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idEmpresa;
-	
+
 	private String nome;
 	private String cnpj;
 	private String telefone;
+
+	@OneToMany(mappedBy = "empresa")
+	private List<Fornecedor> fornecedores = new ArrayList<>();
+
+	@OneToMany(mappedBy = "empresa")
+	private List<Marca> marcas = new ArrayList<>();
 
 	public Empresa() {
 	}
@@ -63,6 +72,14 @@ public class Empresa implements Serializable {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public List<Fornecedor> getFornecedores() {
+		return fornecedores;
+	}
+
+	public List<Marca> getMarcas() {
+		return marcas;
 	}
 
 	@Override
