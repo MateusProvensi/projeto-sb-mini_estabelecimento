@@ -2,14 +2,24 @@ package com.proven.minimercado.entidades.PK;
 
 import java.io.Serializable;
 
+import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import com.proven.minimercado.entidades.Item;
 import com.proven.minimercado.entidades.Venda;
 
+@Embeddable
 public class ItemVendaPK implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@ManyToOne
+	@JoinColumn(name = "fk_id_item")
 	private Item item;
+
+	@ManyToOne
+	@JoinColumn(name = "fk_id_venda")
 	private Venda venda;
 
 	public Item getItem() {

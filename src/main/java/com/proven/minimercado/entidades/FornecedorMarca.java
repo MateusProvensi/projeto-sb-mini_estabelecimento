@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.proven.minimercado.entidades.PK.FornecedorMarcaPK;
@@ -15,8 +17,10 @@ public class FornecedorMarca implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private FornecedorMarcaPK id;
+	@EmbeddedId // Identifica o ID como um ID composto
+	private FornecedorMarcaPK id = new FornecedorMarcaPK();
 
+	@OneToMany(mappedBy = "fornecedorMarca")
 	private List<Item> itens = new ArrayList<>();
 
 	public FornecedorMarca() {

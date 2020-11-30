@@ -2,14 +2,24 @@ package com.proven.minimercado.entidades.PK;
 
 import java.io.Serializable;
 
+import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import com.proven.minimercado.entidades.Fornecedor;
 import com.proven.minimercado.entidades.Marca;
 
+@Embeddable // Identifica a classe como uma PK composta
 public class FornecedorMarcaPK implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@ManyToOne
+	@JoinColumn(name = "fk_id_fornecedor")
 	private Fornecedor fornecedor;
+
+	@ManyToOne
+	@JoinColumn(name = "fk_id_marca")
 	private Marca marca;
 
 	public Fornecedor getFornecedor() {
