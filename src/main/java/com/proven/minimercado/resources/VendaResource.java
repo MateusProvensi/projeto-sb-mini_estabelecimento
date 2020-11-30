@@ -15,33 +15,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.proven.minimercado.entidades.Marca;
-import com.proven.minimercado.servicos.MarcaServico;
+import com.proven.minimercado.entidades.Venda;
+import com.proven.minimercado.servicos.VendaServico;
 
 @RestController
-@RequestMapping(value = "/marcas")
-public class MarcaResource {
+@RequestMapping(value = "/vendas")
+public class VendaResource {
 
 	@Autowired
-	private MarcaServico servico;
+	private VendaServico servico;
 	
 	@GetMapping
-	public ResponseEntity<List<Marca>> acharTodas() {
-		List<Marca> lista = servico.acharTodos();
+	public ResponseEntity<List<Venda>> acharTodas() {
+		List<Venda> lista = servico.acharTodos();
 		return ResponseEntity.ok().body(lista);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Marca> acharPeloId(@PathVariable Long id) {
-		Marca obj = servico.acharPeloId(id);
+	public ResponseEntity<Venda> acharPeloid(@PathVariable Long id) {
+		Venda obj = servico.acharPeloId(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	
 	@PostMapping
-	public ResponseEntity<Marca> insert(@RequestBody Marca obj) {
+	public ResponseEntity<Venda> insert(@RequestBody Venda obj) {
 		obj = servico.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-				.buildAndExpand(obj.getIdMarca()).toUri();
+				.buildAndExpand(obj.getIdVenda()).toUri();
 		return ResponseEntity.created(uri).body(obj);
 	}
 	
@@ -52,9 +52,10 @@ public class MarcaResource {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Marca> update(@PathVariable Long id, @RequestBody Marca obj) {
+	public ResponseEntity<Venda> update(@PathVariable Long id, @RequestBody Venda obj) {
 		obj = servico.update(id, obj);
 		return ResponseEntity.ok().body(obj);
 	}
+	
 	
 }
