@@ -8,12 +8,14 @@ import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Service;
 
 import com.proven.minimercado.entidades.Fornecedor;
 import com.proven.minimercado.repositorios.FornecedorRepositorio;
 import com.proven.minimercado.servicos.exceptions.BancoDadosException;
 import com.proven.minimercado.servicos.exceptions.ResourceNaoAchadoException;
 
+@Service
 public class FornecedorServico {
 
 	@Autowired

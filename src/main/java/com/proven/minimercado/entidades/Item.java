@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -30,9 +31,14 @@ public class Item implements Serializable {
 	private Integer quantidade;
 	private Instant validade;
 	private String corredor;
-
+	
+	// Abaixo foi usado a anotacao JoinColumns pois como existe uma PK composta, ele espera duas colunas, 
+	// mas estava sendo configurada apenas uma, desta forma ele cria duas colunas
 	@ManyToOne
-	@JoinColumn(name = "fk_id_fornecedor_marca")
+	@JoinColumns({
+		@JoinColumn(name = "fk_id_fornecedor"),
+		@JoinColumn(name = "fk_id_marca")
+	})
 	private FornecedorMarca fornecedorMarca;
 
 	@OneToMany(mappedBy = "id.item")

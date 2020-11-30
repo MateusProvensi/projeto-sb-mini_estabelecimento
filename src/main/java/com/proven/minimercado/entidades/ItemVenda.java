@@ -2,7 +2,7 @@ package com.proven.minimercado.entidades;
 
 import java.io.Serializable;
 
-import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -14,7 +14,7 @@ public class ItemVenda implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Embedded
+	@EmbeddedId
 	private ItemVendaPK id = new ItemVendaPK();
 
 	private Integer quantidade;
@@ -24,6 +24,7 @@ public class ItemVenda implements Serializable {
 	}
 
 	public ItemVenda(Item item, Venda venda, Integer quantidade, Double preco) {
+		super();
 		id.setItem(item);
 		id.setVenda(venda);
 		this.quantidade = quantidade;
