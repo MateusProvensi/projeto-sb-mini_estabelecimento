@@ -42,7 +42,7 @@ public class FornecedorServico {
 		}
 	}
 
-	public Fornecedor insert(Long id, Fornecedor obj) {
+	public Fornecedor update(Long id, Fornecedor obj) {
 		try {
 			Fornecedor entidade = repositorio.getOne(id);
 			updateDados(entidade, obj);
