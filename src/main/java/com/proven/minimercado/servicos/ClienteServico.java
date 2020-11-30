@@ -22,4 +22,8 @@ public class ClienteServico {
 		return obj.get();
 	}
 
+	public Cliente insert(Cliente obj) {
+		return repositorio.save(obj);
+	}
+
 }

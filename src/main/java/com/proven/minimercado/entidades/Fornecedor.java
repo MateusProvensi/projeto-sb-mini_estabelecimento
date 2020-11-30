@@ -2,6 +2,8 @@ package com.proven.minimercado.entidades;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -31,6 +34,9 @@ public class Fornecedor implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "fk_id_empresa")
 	private Empresa empresa;
+
+	@OneToMany(mappedBy = "id.fornecedor")
+	private Set<FornecedorMarca> marcas = new HashSet<>();
 
 	public Fornecedor() {
 	}
@@ -110,6 +116,14 @@ public class Fornecedor implements Serializable {
 
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
+	}
+
+	public Set<Marca> getMarcas() {
+		Set<Marca> marcaSet = new HashSet<>();
+		for (FornecedorMarca fornecedorMarca : marcas) {
+			marcaSet.add(fornecedorMarca.getMarca());
+		}
+		return marcaSet;
 	}
 
 	@Override
