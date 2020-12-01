@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tb_item")
 public class Item implements Serializable {
@@ -122,7 +124,8 @@ public class Item implements Serializable {
 	public void setFornecedorMarca(FornecedorMarca fornecedorMarca) {
 		this.fornecedorMarca = fornecedorMarca;
 	}
-
+	
+	@JsonIgnore
 	public Set<Venda> getVendas() {
 		Set<Venda> vendasSet = new HashSet<>();
 		for (ItemVenda itemVenda : vendas) {

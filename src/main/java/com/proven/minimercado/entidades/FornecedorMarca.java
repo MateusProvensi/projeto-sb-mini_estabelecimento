@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.proven.minimercado.entidades.PK.FornecedorMarcaPK;
 
 @Entity
@@ -20,6 +21,7 @@ public class FornecedorMarca implements Serializable {
 	@EmbeddedId // Identifica o ID como um ID composto
 	private FornecedorMarcaPK id = new FornecedorMarcaPK();
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "fornecedorMarca")
 	private List<Item> itens = new ArrayList<>();
 

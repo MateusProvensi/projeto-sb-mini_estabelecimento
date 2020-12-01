@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity // Diz para o JPA que ele é uma entidade
 @Table(name = "tb_cliente") // Diz para o JPA como será o nome da tabela
 public class Cliente implements Serializable {
@@ -28,6 +30,7 @@ public class Cliente implements Serializable {
 	private String rg;
 	private String telefone;
 
+	@JsonIgnore // Utilizado para ser ignorado no Json
 	@OneToMany(mappedBy = "cliente") // Cria associacao de muitos para um e fala qual o nome do atributo que ele esta
 										// mapeado na outra entidade
 	private List<Venda> vendas = new ArrayList<>();

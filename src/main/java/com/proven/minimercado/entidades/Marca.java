@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tb_marca")
 public class Marca implements Serializable {
@@ -26,10 +28,12 @@ public class Marca implements Serializable {
 	private String nome;
 	private String cnpj;
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "fk_id_empresa")
 	private Empresa empresa;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "id.marca")
 	private Set<FornecedorMarca> fornecedores = new HashSet<>();
 

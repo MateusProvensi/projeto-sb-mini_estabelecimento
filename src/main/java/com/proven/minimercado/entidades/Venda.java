@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "tb_venda")
 public class Venda implements Serializable {
@@ -25,6 +27,8 @@ public class Venda implements Serializable {
 	private Long idVenda;
 
 	private Double precoTotal;
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
 	private Instant dataHoraVenda;
 
 	@ManyToOne // Cria associacao de muitos para um

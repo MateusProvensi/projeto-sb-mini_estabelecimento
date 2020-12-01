@@ -18,11 +18,13 @@ public class ResourceExceptionHandler {
 	@ExceptionHandler(ResourceNaoAchadoException.class) // Verifica se a excecao cairá aqui
 	public ResponseEntity<StandardError> resourceNaoAchado(ResourceNaoAchadoException e, 
 			HttpServletRequest request) {
+		
 		String error = "Resource não foi achado";
 		HttpStatus status = HttpStatus.NOT_FOUND;
 		StandardError erro = new StandardError(Instant.now(), status.value(), error, e.getMessage(), 
 				request.getRequestURI());
 		return ResponseEntity.status(status).body(erro);
+		
 	}
 	
 	@ExceptionHandler(BancoDadosException.class)
