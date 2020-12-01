@@ -27,7 +27,8 @@ public class ClienteServico {
 
 	public Cliente acharPeloId(Long id) {
 		Optional<Cliente> obj = repositorio.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNaoAchadoException(id)); // Ele tenta dar um get caso 
+		// nao seja possivel ele lanca uma excecao parra dentro da expressao 
 	}
 
 	public Cliente insert(Cliente obj) {

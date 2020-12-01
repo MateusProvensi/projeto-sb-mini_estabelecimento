@@ -27,7 +27,7 @@ public class EmpresaServico {
 
 	public Empresa acharPeloId(Long id) {
 		Optional<Empresa> obj = repositorio.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNaoAchadoException(id));
 	}
 
 	public Empresa insert(Empresa obj) {

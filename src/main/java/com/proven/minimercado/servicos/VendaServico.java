@@ -27,7 +27,7 @@ public class VendaServico {
 
 	public Venda acharPeloId(Long id) {
 		Optional<Venda> obj = repositorio.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNaoAchadoException(id));
 	}
 
 	public Venda insert(Venda obj) {

@@ -27,7 +27,7 @@ public class MarcaServico {
 
 	public Marca acharPeloId(Long id) {
 		Optional<Marca> obj = repositorio.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNaoAchadoException(id));
 	}
 
 	public Marca insert(Marca obj) {

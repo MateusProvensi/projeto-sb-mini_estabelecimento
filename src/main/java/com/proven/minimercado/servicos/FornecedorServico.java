@@ -27,7 +27,7 @@ public class FornecedorServico {
 
 	public Fornecedor acharPeloId(Long id) {
 		Optional<Fornecedor> obj = repositorio.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNaoAchadoException(id));
 	}
 
 	public Fornecedor insert(Fornecedor obj) {

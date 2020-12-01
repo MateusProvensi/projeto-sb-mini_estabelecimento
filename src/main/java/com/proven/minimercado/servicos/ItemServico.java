@@ -27,7 +27,7 @@ public class ItemServico {
 
 	public Item acharPeloId(Long id) {
 		Optional<Item> obj = repositorio.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNaoAchadoException(id));
 	}
 
 	public Item insert(Item obj) {
